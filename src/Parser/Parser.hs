@@ -1,12 +1,16 @@
 {-# LANGUAGE OverloadedStrings     #-}
-module Parser where
+module Parser.Parser where
 
 import Data.Attoparsec.ByteString
 import Data.Attoparsec.ByteString.Char8 as C8
 import qualified Data.ByteString.Char8 as C
 
-import ParsePath
-import DataType
+import Parser.ParsePath
+import Parser.ParsePreset
+import Type.DataType
+
+
+
 
 parsePaths :: Parser [Path]
 parsePaths  = do

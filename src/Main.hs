@@ -1,8 +1,8 @@
 {-# LANGUAGE OverloadedStrings     #-}
 module Main where
 
-import Parser
-import DataType
+import Parser.Parser
+import Type.DataType
 
 -- data Label = Imperial Double | Metric Double
 -- type Point = (Label, Label)
@@ -24,6 +24,7 @@ shiftPaths pas u xy = map (shiftPath u xy ) pas
 
 
 
+pathtest = Path (L 0) (0, 0) [(Imperial 0, Imperial 0)]
 
 file :: FilePath
 file = "src/test.osm"
@@ -31,6 +32,6 @@ file = "src/test.osm"
 main :: IO ()
 main = do
     paths <-  parseFile file
-    let newPaths = shiftPaths paths MM (10, 20)
+    let newPaths = shiftPaths paths MM (10, 24)
     writeFile "src/test_out.osm" (showPaths newPaths)
 

@@ -1,22 +1,148 @@
-Path L 1 { 12.79995m -1m W 10 S 10 12.75661m -0.74026m 12.63127m -0.50865m 12.43753m
--0.33030m 12.19637m -0.22451m 11.93392m -0.20277m 11.67864m -0.26741m 11.45818m
--0.41145m 11.29643m -0.61926m 11.21093m -0.86833m 11.21093m -1.13168m 11.29643m
--1.38075m 11.45818m -1.58856m 11.67864m -1.73260m 11.93392m -1.79724m 12.19637m
--1.77550m 12.43753m -1.66971m 12.63127m -1.49136m 12.75661m -1.25975m 12.79995m
--1m }
-Path L 1 { 1.79997m -1m W 10 S 10 1.75663m -0.74026m 1.63129m -0.50865m 1.43755m
--0.33030m 1.19639m -0.22451m 0.93394m -0.20277m 0.67866m -0.26741m 0.45820m
--0.41145m 0.29645m -0.61926m 0.21095m -0.86833m 0.21095m -1.13168m 0.29645m
--1.38075m 0.45820m -1.58856m 0.67866m -1.73260m 0.93394m -1.79724m 1.19639m
--1.77550m 1.43755m -1.66971m 1.63129m -1.49136m 1.75663m -1.25975m 1.79997m
--1m }
-Path L 1 { 356.3 -6.09999m W 10 S 10 9.00394m -5.61740m 8.86736m -5.15224m 8.64522m
--4.72134m 8.34554m -4.34027m 7.97916m -4.02280m 7.55932m -3.78041m 7.10119m
--3.62185m 6.62133m -3.55285m 6.13709m -3.57592m 5.66596m -3.69021m 5.22498m
--3.89160m 4.83008m -4.17281m 4.49554m -4.52367m 4.23344m -4.93150m 4.05326m
--5.38157m 3.96151m -5.85760m 3.96151m -6.34239m 4.05326m -6.81842m 4.23344m
--7.26849m 4.49554m -7.67632m 4.83008m -8.02718m 5.22498m -8.30839m 5.66596m
--8.50978m 6.13709m -8.62407m 6.62133m -8.64714m 7.10119m -8.57814m 7.55932m
--8.41958m 7.97916m -8.17719m 8.34554m -7.85972m 8.64522m -7.47865m 8.86736m
--7.04775m 9.00394m -6.58259m 356.3 -6.09999m }
+View {
+Width 12.000000000 
+Height 12.000000000 
+Mag 1.5 
+Center 155.92777m 101.01203m 
+Grid 1m 1m 
+Index 0 0 
+PrintScale 0.0 
+FullWidth
+Outlines
+ShowHoles
+ShowNames
+ShowValues
+ShowPinNames
+ShowOrigin
+SolidPads
+VectorText
+ShowSelectedSignalTrace
+SavedFrameString "0 107 1280 670 0 0 1280 777 " 
+PadFillColor 5898 30146 13107 
+GridColor 57344 57344 65280 
+HoleColor 55000 55000 65535 
+BackgroundColor 65535 65535 65535 
+SelectedSignalTraceColor 12345 54321 6789 
+CustomGrid "100 mils x 200 mils" 
+CustomGrid "20 mm" 
+CustomGrid "100 mm" 
+}
 
+Setup {
+Layers 4 
+TraceWidth 10 
+Spacing 10 
+SolderMaskRing 10 
+ForceMetric 
+}
+GerberOptions {
+NormalLayers yes 
+NormalLayersFlipOdd no 
+NormalLayersFlipEven no 
+PlaneLayers yes 
+PlaneLayersFlipOdd no 
+PlaneLayersFlipEven no 
+SilkLayers yes 
+SilkLayersFlipOdd no 
+SilkLayersFlipEven no 
+SolderMaskLayers yes 
+SolderMaskLayersFlipOdd no 
+SolderMaskLayersFlipEven no 
+FlattenCopperFlood no 
+DrillFile DRILL.TXT 
+Aux1File AUX1.GBR 
+Aux2File AUX2.GBR 
+Silk1File SILK1.GBR 
+Silk2File SILK2.GBR 
+Mask1File MASK1.GBR 
+Mask2File MASK2.GBR 
+Layer1File LAYER1.GBR 
+Layer2File LAYER2.GBR 
+Layer3File LAYER3.GBR 
+Layer4File LAYER4.GBR 
+LayerXFile LAYER%d.GBR 
+AuxXFile AUX%d.GBR 
+}
+
+PostscriptOptions {
+NormalLayers yes 
+NormalLayersFlipOdd no 
+NormalLayersFlipEven no 
+PlaneLayers yes 
+PlaneLayersFlipOdd no 
+PlaneLayersFlipEven no 
+SilkLayers yes 
+SilkLayersFlipOdd no 
+SilkLayersFlipEven no 
+SolderMaskLayers yes 
+SolderMaskLayersFlipOdd no 
+SolderMaskLayersFlipEven no 
+}
+
+
+
+
+
+
+Layer 1 { Outer
+AnnularRing 20 VoidRing 20 SurroundWidth
+10 PathColor 56000 2000 1500 Visible
+
+}
+Layer 2 { Inner
+AnnularRing 20 VoidRing 20 SurroundWidth
+10 PathColor 0 0 64000 Invisible
+
+}
+Layer 3 { Inner
+AnnularRing 20 VoidRing 20 SurroundWidth
+10 PathColor 56000 2000 1500 Visible
+
+}
+Layer 4 { Outer
+AnnularRing 20 VoidRing 20 SurroundWidth
+10 PathColor 0 0 64000 Invisible
+
+}
+
+SilkLayer 1 { Outer
+AnnularRing 20 VoidRing 20 SurroundWidth
+10 PathColor 0 32000 4000 Visible
+
+}
+SilkLayer 2 { Outer
+AnnularRing 20 VoidRing 20 SurroundWidth
+10 PathColor 32000 40000 32000 Visible
+
+}
+
+MaskLayer 1 { Outer
+AnnularRing 20 VoidRing 20 SurroundWidth
+10 PathColor 0 32000 4000 Invisible
+
+}
+MaskLayer 2 { Outer
+AnnularRing 20 VoidRing 20 SurroundWidth
+10 PathColor 32000 40000 32000 Invisible
+
+}
+
+AuxLayer 1 { Outer
+AnnularRing 20 VoidRing 20 SurroundWidth
+10 PathColor 0 32000 4000 Visible
+
+}
+AuxLayer 2 { Outer
+AnnularRing 20 VoidRing 20 SurroundWidth
+10 PathColor 32000 40000 32000 Visible
+
+}
+
+
+
+
+
+
+
+
+
+End

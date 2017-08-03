@@ -1,4 +1,4 @@
-module DataType where
+module Type.DataType where
 
 -- For Parsing
 data Layer = L Int | S Int | M Int | A Int deriving (Show)
@@ -13,11 +13,7 @@ data Path = Path Layer Trace [Point]
 data Unit = MM | MIL
 
 
-pathtest = Path (L 0) (0, 0) [(Imperial 0, Imperial 0)]
-
-
--- instance Show Trace where
---     show (Trace w s) = "W " ++ (show w) ++ "S " ++ (show s)
+-- Instance
 
 instance Show Label where
     show (Imperial l) = show l
@@ -33,3 +29,5 @@ instance Show Path where
 showPaths :: [Path] -> String
 showPaths [] = ""
 showPaths (pa:pas) = (show pa) ++ "\n" ++ (showPaths pas)
+
+
