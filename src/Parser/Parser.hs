@@ -29,4 +29,4 @@ parseFile f = do
 parseFileTest :: FilePath -> IO ()
 parseFileTest f = do
     input <- readFile f
-    parseTest parsePaths (C.pack input)
+    parseTest parseView (C.pack input)

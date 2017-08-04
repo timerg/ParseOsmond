@@ -1,81 +1,79 @@
 View {
-Width 12.000000000 
-Height 12.000000000 
-Mag 1.5 
-Center 155.92777m 101.01203m 
-Grid 1m 1m 
-Index 0 0 
-PrintScale 0.0 
+Width 12.000000000
+Height 12.000000000
+Mag 1.5
+Center 155.69259m 100.89444m
+Grid 1m 1m
+Index 0 0
+PrintScale 0.0
 FullWidth
 Outlines
 ShowHoles
 ShowNames
 ShowValues
-ShowPinNames
 ShowOrigin
-SolidPads
 VectorText
 ShowSelectedSignalTrace
-SavedFrameString "0 107 1280 670 0 0 1280 777 " 
-PadFillColor 5898 30146 13107 
-GridColor 57344 57344 65280 
-HoleColor 55000 55000 65535 
-BackgroundColor 65535 65535 65535 
-SelectedSignalTraceColor 12345 54321 6789 
-CustomGrid "100 mils x 200 mils" 
-CustomGrid "20 mm" 
-CustomGrid "100 mm" 
+SavedFrameString "0 107 1280 670 0 0 1280 777 "
+PadFillColor 5898 30146 13107
+GridColor 57344 57344 65280
+HoleColor 55000 55000 65535
+BackgroundColor 65535 65535 65535
+SelectedSignalTraceColor 12345 54321 6789
+CustomGrid "100 mils x 200 mils"
+CustomGrid "20 mm"
+CustomGrid "100 mm"
 }
 
 Setup {
-Layers 4 
-TraceWidth 10 
-Spacing 10 
-SolderMaskRing 10 
-ForceMetric 
+Layers 4
+TraceWidth 10
+Spacing 10
+SolderMaskRing 10
+ForceMetric
 }
 GerberOptions {
-NormalLayers yes 
-NormalLayersFlipOdd no 
-NormalLayersFlipEven no 
-PlaneLayers yes 
-PlaneLayersFlipOdd no 
-PlaneLayersFlipEven no 
-SilkLayers yes 
-SilkLayersFlipOdd no 
-SilkLayersFlipEven no 
-SolderMaskLayers yes 
-SolderMaskLayersFlipOdd no 
-SolderMaskLayersFlipEven no 
-FlattenCopperFlood no 
-DrillFile DRILL.TXT 
-Aux1File AUX1.GBR 
-Aux2File AUX2.GBR 
-Silk1File SILK1.GBR 
-Silk2File SILK2.GBR 
-Mask1File MASK1.GBR 
-Mask2File MASK2.GBR 
-Layer1File LAYER1.GBR 
-Layer2File LAYER2.GBR 
-Layer3File LAYER3.GBR 
-Layer4File LAYER4.GBR 
-LayerXFile LAYER%d.GBR 
-AuxXFile AUX%d.GBR 
+NormalLayers yes
+NormalLayersFlipOdd no
+NormalLayersFlipEven no
+PlaneLayers yes
+PlaneLayersFlipOdd no
+PlaneLayersFlipEven no
+SilkLayers yes
+SilkLayersFlipOdd no
+SilkLayersFlipEven no
+SolderMaskLayers yes
+SolderMaskLayersFlipOdd no
+SolderMaskLayersFlipEven no
+FlattenCopperFlood no
+DrillFile DRILL.TXT
+Aux1File AUX1.GBR
+Aux2File AUX2.GBR
+Silk1File SILK1.GBR
+Silk2File SILK2.GBR
+Mask1File MASK1.GBR
+Mask2File MASK2.GBR
+Layer1File LAYER1.GBR
+Layer2File LAYER2.GBR
+Layer3File LAYER3.GBR
+Layer4File LAYER4.GBR
+LayerXFile LAYER%d.GBR
+AuxXFile AUX%d.GBR
 }
 
 PostscriptOptions {
-NormalLayers yes 
-NormalLayersFlipOdd no 
-NormalLayersFlipEven no 
-PlaneLayers yes 
-PlaneLayersFlipOdd no 
-PlaneLayersFlipEven no 
-SilkLayers yes 
-SilkLayersFlipOdd no 
-SilkLayersFlipEven no 
-SolderMaskLayers yes 
-SolderMaskLayersFlipOdd no 
-SolderMaskLayersFlipEven no 
+NormalLayers yes
+NormalLayersFlipOdd no
+NormalLayersFlipEven no
+PlaneLayers yes
+PlaneLayersFlipOdd no
+PlaneLayersFlipEven no
+SilkLayers yes
+SilkLayersFlipOdd no
+SilkLayersFlipEven no
+SolderMaskLayers yes
+SolderMaskLayersFlipOdd no
+SolderMaskLayersFlipEven no
 }
 
 

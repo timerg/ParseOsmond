@@ -1,5 +1,5 @@
 {-# LANGUAGE OverloadedStrings     #-}
-module Parser.ParsePreset where
+module Parser.ParsePreset  where
 
 import Data.Attoparsec.ByteString
 import qualified Data.Attoparsec.ByteString.Char8 as C8
@@ -23,7 +23,7 @@ data View = View {
     viewMag :: Double,
     center :: (Label, Label),
     grid :: (Label, Label),
-    index :: (Int, Int),
+    index :: (Label, Label),
     printScale :: Double,
     showNames     :: Bool,
     showValues    :: Bool,
@@ -53,17 +53,39 @@ parsePoint = do
     yl <- parseLabel
     return (xl, yl)
 
+parseRGB :: Parser RGB
+parseRGB = do
+    r <- C8.decimal
+    C8.skipSpace
+    g <- C8.decimal
+    C8.skipSpace
+    b <- C8.decimal
+    C8.skipSpace
+    return (r, g, b)
+
+parseCustomGrid :: Parser (Label, Label)
+parseCustomGrid = do
+            string "CustomGrid \""
+            xl <- parseLabel'
+            yl <- option xl $ (string " x " >> parseLabel')
+            string "\""
+            C8.skipSpace
+            return (xl, yl)
+                where parseLabel' = do
+                           val <- C8.double
+                           C8.skipSpace
+                           label <- choice [(Metric val) <$ (string "mm") , (Imperial val) <$ (string "mils")]
+                           return label
 
 string' a = C8.skipSpace >> (string a)
 
-
+-- stringList s = (option False (True <$ (string s))) <> C8.skipSpace
 stringList s = do
-    result <- let toTrue "" = False
-                  toTrue s  = True
-              in option False $ (toTrue <$> (string s) <> C8.skipSpace)
-    return result
+    x <- option False (True <$ (string s))
+    C8.skipSpace
+    return x
 
-parseView :: Parser ()
+parseView :: Parser View
 parseView = do
     string "View {"
     C8.skipSpace
@@ -73,7 +95,7 @@ parseView = do
     string "Height "
     height <- C8.double
     C8.skipSpace
-    margin <- let parsem = (string "Margin ") >> (C8.double) <> (C8.skipSpace) in try parsem
+    margin <- let parsem = (string "Margin ") >> (C8.double) <> (C8.skipSpace) in option 0.0 parsem
     string "Mag "
     mag <- C8.double
     C8.skipSpace
@@ -99,13 +121,48 @@ parseView = do
     theSolidPads <- stringList "SolidPads"
     theVectorText <- stringList "VectorText"
     theShowSelectedSignalTrace <- stringList "ShowSelectedSignalTrace"
+    -- C8.skipSpace
     string "SavedFrameString \""
-    many' (C8.decimal <> C8.space)
-    
-    return ()
+    theSavedFrameString <- manyTill (C8.decimal <> C8.skipSpace) (string' "\"" >> C8.skipSpace)
+    string "PadFillColor "
+    thepadFillColor <- parseRGB
+    string "GridColor "
+    thegridColor <- parseRGB
+    string "HoleColor "
+    theholeColor <- parseRGB
+    string "BackgroundColor "
+    thebackgroundColor <- parseRGB
+    string "SelectedSignalTraceColor "
+    theSelectedSignalTraceColor <- parseRGB
+    theCustomGrid <- manyTill parseCustomGrid (string "}")
+    return $ View width
+                height
+                margin
+                mag
+                center
+                grid
+                index
+                printScale
+                theFullWidth
+                theOutlines
+                theShowHoles
+                theShowNames
+                theShowValues
+                theShowPinNames
+                theShowOrigin
+                theSolidPads
+                theVectorText
+                theShowSelectedSignalTrace
+                theSavedFrameString
+                thepadFillColor
+                thegridColor
+                theholeColor
+                thebackgroundColor
+                theSelectedSignalTraceColor
+                theCustomGrid
+-- --
 
-
-
+parseView :: Parser Setup
 
 
 
